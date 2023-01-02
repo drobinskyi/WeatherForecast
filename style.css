@@ -1,0 +1,126 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+
+body{
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+}
+.container{
+    margin: auto;
+    margin-top: 20px;
+    height: auto;
+    width: 770px;
+}
+.weather{
+    height: 330px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.weather_now{
+    height: 330px;
+    width: 200px;
+    background: linear-gradient(to top, #439EDF, 40%, #6BC2FF);
+    border-radius: 20px;
+    text-align: center;
+    color: #ffffff;
+}
+.weather_city{
+    height: 30px;
+    padding-top: 20px;
+    font-size: 26px;
+}
+.weather_now_icon{
+    height: 130px;
+}
+.weather_img{
+    height: 150px;
+}
+.weather_now_temp{
+    font-size: 40px;
+    font-weight: 600;
+}
+.weather_now_details{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+.box_text{
+    margin-bottom: 0;
+}
+.box_details{
+    margin-top: 0;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.weather_days{
+    height: auto;
+    width: 550px;
+    
+}
+.weather_day{
+    width: 550px;
+    height: 100px;
+    margin-bottom: 10px;
+    background: linear-gradient(to top, #d5d6d6 , 40%, #f1f2f3);
+    border-radius: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+.day_time{
+    height: 30px;
+    width: 100px;
+    font-size: 18px; 
+}
+.day_time .day_name{
+    margin: 25px 0 0 0;
+}
+.day_time .day_hours{
+    margin: 0;
+}
+.day_icon{
+    margin: 0;
+}
+.day_temp, .day_hum{
+    font-size: 20px;
+    font-weight: 600;
+    height: 30px;
+    width: 50px;
+    margin-top: 35px;
+}
+.day_hum{
+    color: #3776a2;
+}
+.select_city{
+    height: 50px;
+    width: 100%;
+    display: flex;
+    justify-content: end;
+    font-size: 20px;
+}
+#city_name{
+    height: 38px;
+    width: 200px;
+    border-radius: 20px 0 0 20px;
+    background: linear-gradient(to top, #d5d6d6, 40%, #f1f2f3);
+    border: none;
+    text-align: center;
+    outline: none;
+}
+#select_name{
+    height: 40px;
+    width: 80px;
+    background: linear-gradient(to top, #439EDF, 40%, #6BC2FF);
+    border: none;
+    border-radius: 0 20px 20px 0;
+    text-align: center;
+    color: #ffffff;
+}
+#select_name:hover{
+    background:#439EDF;
+    cursor: pointer;
+}
+
