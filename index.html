@@ -8,15 +8,18 @@
     <title>Weather Forecast</title>
 </head>
 <body>
-    <div class="container">
+    <header>
+        <div class="title">
+            <h1>Weather Forecast</h1>
+        </div>
         <form class="select_city" action="/" method="GET" onsubmit="thisCity(event)">
             <input type="text" id="city_name" name="city_name" placeholder="Enter the city">
             <input type="submit" id="select_name" name="select_name" value="Search">
         </form>
-        <div class="weather">
-            <div id="weather_now" class="weather_now"></div>
-            <div id="weather_days" class="weather_days"></div>
-        </div>
+    </header>
+    <div class="container">
+        <div id="weather_now" class="weather_now"></div>
+        <div id="weather_days" class="weather_days"></div>
     </div>
     
     <script src="script.js"></script>

@@ -7,13 +7,8 @@ body{
 }
 .container{
     margin: auto;
-    margin-top: 20px;
     height: auto;
     width: 770px;
-}
-.weather{
-    height: 330px;
-    width: 100%;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -25,6 +20,8 @@ body{
     border-radius: 20px;
     text-align: center;
     color: #ffffff;
+    position: sticky;
+    top: 20px;
 }
 .weather_city{
     height: 30px;
@@ -94,9 +91,26 @@ body{
 .day_hum{
     color: #3776a2;
 }
+
+/* Header */
+header {
+    width: 770px;
+    height: 60px;
+    margin: auto;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.title {
+    width: calc(100% - 280px);
+}
+.title h1 {
+    margin: 0;
+}
 .select_city{
     height: 50px;
-    width: 100%;
+    width: 280px;
     display: flex;
     justify-content: end;
     font-size: 20px;
@@ -123,4 +137,3 @@ body{
     background:#439EDF;
     cursor: pointer;
 }
-
