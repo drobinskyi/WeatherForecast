@@ -1,19 +1,20 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
-
-body{
+* {
     margin: 0;
     padding: 0;
     font-family: 'Poppins', sans-serif;
 }
-.container{
+
+.container {
     margin: auto;
     height: auto;
     width: 770px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    flex-wrap: wrap;
 }
-.weather_now{
+
+.weather_now {
     height: 330px;
     width: 200px;
     background: linear-gradient(to top, #439EDF, 40%, #6BC2FF);
@@ -23,100 +24,124 @@ body{
     position: sticky;
     top: 20px;
 }
-.weather_city{
+
+.weather_city {
     height: 30px;
     padding-top: 20px;
     font-size: 26px;
 }
-.weather_now_icon{
+
+.weather_now_icon {
     height: 130px;
 }
-.weather_img{
+
+.weather_img {
     height: 150px;
 }
-.weather_now_temp{
+
+.weather_now_temp {
     font-size: 40px;
     font-weight: 600;
 }
-.weather_now_details{
+
+.weather_now_details {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
 }
-.box_text{
+
+.box_text {
     margin-bottom: 0;
 }
-.box_details{
+
+.box_details {
     margin-top: 0;
     font-size: 20px;
     font-weight: 600;
 }
 
-.weather_days{
+.weather_days {
     height: auto;
     width: 550px;
-    
+
 }
-.weather_day{
+
+.weather_day {
     width: 550px;
     height: 100px;
     margin-bottom: 10px;
-    background: linear-gradient(to top, #d5d6d6 , 40%, #f1f2f3);
+    background: linear-gradient(to top, #d5d6d6, 40%, #f1f2f3);
     border-radius: 20px;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
 }
-.day_time{
+
+.day_time {
     height: 30px;
     width: 100px;
-    font-size: 18px; 
+    font-size: 18px;
 }
-.day_time .day_name{
+
+.day_time .day_name {
     margin: 25px 0 0 0;
 }
-.day_time .day_hours{
+
+.day_time .day_hours {
     margin: 0;
 }
-.day_icon{
+
+.day_icon {
     margin: 0;
 }
-.day_temp, .day_hum{
+
+.day_temp,
+.day_hum {
     font-size: 20px;
     font-weight: 600;
     height: 30px;
     width: 50px;
     margin-top: 35px;
 }
-.day_hum{
+
+.day_hum {
     color: #3776a2;
 }
 
 /* Header */
 header {
-    width: 770px;
-    height: 60px;
+    max-width: 770px;
     margin: auto;
+}
+
+.header {
+    width: 100%;
+    height: 60px;
     margin-top: 20px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
 }
+
 .title {
     width: calc(100% - 280px);
 }
+
 .title h1 {
     margin: 0;
 }
-.select_city{
+
+.select_city {
     height: 50px;
     width: 280px;
     display: flex;
     justify-content: end;
     font-size: 20px;
 }
-#city_name{
-    height: 38px;
+
+#city_name {
+    font-family: 'Poppins', sans-serif;
+    height: 40px;
     width: 200px;
     border-radius: 20px 0 0 20px;
     background: linear-gradient(to top, #d5d6d6, 40%, #f1f2f3);
@@ -124,7 +149,9 @@ header {
     text-align: center;
     outline: none;
 }
-#select_name{
+
+#select_name {
+    font-family: 'Poppins', sans-serif;
     height: 40px;
     width: 80px;
     background: linear-gradient(to top, #439EDF, 40%, #6BC2FF);
@@ -133,7 +160,43 @@ header {
     text-align: center;
     color: #ffffff;
 }
-#select_name:hover{
-    background:#439EDF;
+
+#select_name:hover {
+    background: #439EDF;
     cursor: pointer;
+}
+
+/* Улюблені міста */
+.favorite-cities {
+    width: 100%;
+    height: 40px;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.favorite-city {
+    height: 40px;
+    width: fit-content;
+    padding: 0 20px;
+    border-radius: 20px;
+    background: linear-gradient(to top, #d5d6d6, 40%, #f1f2f3);
+    text-align: center;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    transition: .2s ease;
+}
+
+.favorite-city:hover {
+    background: linear-gradient(to top, #d5d6d6, 40%, #d5d6d6);
+}
+
+.selected-city {
+    color: #ffffff;
+    background: linear-gradient(to top, #439EDF, 40%, #6BC2FF);
+}
+
+.selected-city:hover {
+    background: linear-gradient(to top, #439EDF, 40%, #6BC2FF);
 }

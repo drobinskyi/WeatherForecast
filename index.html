@@ -4,24 +4,30 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <title>Weather Forecast</title>
 </head>
 <body>
     <header>
-        <div class="title">
-            <h1>Weather Forecast</h1>
+        <div class="header">
+            <div class="title">
+                <h1>Weather Forecast</h1>
+            </div>
+            <form class="select_city" action="/" method="GET" onsubmit="thisCity(event)">
+                <input type="text" id="city_name" name="city_name" placeholder="Enter the city">
+                <input type="submit" id="select_name" name="select_name" value="Search">
+            </form>
         </div>
-        <form class="select_city" action="/" method="GET" onsubmit="thisCity(event)">
-            <input type="text" id="city_name" name="city_name" placeholder="Enter the city">
-            <input type="submit" id="select_name" name="select_name" value="Search">
-        </form>
+        <div class="favorite-cities"></div>
     </header>
     <div class="container">
         <div id="weather_now" class="weather_now"></div>
         <div id="weather_days" class="weather_days"></div>
     </div>
-    
+
     <script src="script.js"></script>
 </body>
 </html>

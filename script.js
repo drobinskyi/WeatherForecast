@@ -1,29 +1,22 @@
 "use strict"
 
 // Блок з погодою зараз
-let weatherBlock = document.querySelector('#weather_now');
+const weatherBlock = document.querySelector('#weather_now');
 
 // Блок зі щоденною погодою
-let weatherBlockDays = document.querySelector('#weather_days');
+const weatherBlockDays = document.querySelector('#weather_days');
+
+// Блок з улюбленими містами
+const favoriteCitiesString = document.querySelector('.favorite-cities');
 
 // Головне місто
-let mainCity = 'lviv';
+const mainCity = 'Lviv';
 
-// Отримання назви міста
-let form = document.querySelector(".select_city");
-let cityName = form.elements.city_name;
-function thisCity(event) {
-    event.preventDefault();
-
-    let newCity = cityName.value;
-    loadWeather(newCity);
-
-    return false;
-}
+// Улюблені міста
+const favoriteCities = ['Lviv', 'Kyiv', 'Vinnytsia', 'London', 'Paris', 'Tokyo', 'Anchorage'];
 
 // Функція прогнозу погоди бере дані
 async function loadWeather(city) {
-
     const server = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&units=metric&appid=953b0f3cb1099077afe9a2b277e47716`;
     const response = await fetch(server, {
         method: 'GET',
@@ -37,7 +30,46 @@ async function loadWeather(city) {
         weatherBlock.innerHTML = "";
         weatherBlockDays.innerHTML = responseResult.message;
     }
-}
+};
+
+// Отримання назви міста з форми
+let form = document.querySelector(".select_city");
+let cityName = form.elements.city_name;
+function thisCity(event) {
+    event.preventDefault();
+
+    let newCity = cityName.value;
+    loadWeather(newCity);
+    activeFavoriteCity(newCity);
+    cityName.value = "";
+};
+
+// Вибір улюбленого міста
+function getCurrentCity() {
+    favoriteCities.forEach((el) => {
+        let button = document.createElement("div");
+        button.classList.add("favorite-city");
+        button.textContent = el;
+        button.addEventListener("click", function (content) {
+            content = button.textContent;
+            loadWeather(el);
+            activeFavoriteCity(el);
+        });
+        favoriteCitiesString.appendChild(button);
+    });
+};
+
+// Виділення кнопки з вибраним улюбленим містом
+function activeFavoriteCity(city) {
+    let buttons = document.getElementsByClassName("favorite-city");
+    for (let i = 0; i < buttons.length; i++) {
+        if (buttons[i].textContent === city) {
+            buttons[i].classList.add("selected-city");
+        } else {
+            buttons[i].classList.remove("selected-city");
+        };
+    };
+};
 
 // Відображення поточної погоди
 function getWeather(data) {
@@ -65,15 +97,14 @@ function getWeather(data) {
                 <p class="box_details">${humid}&#37;</p>
             </div>
         </div>
-        `
-}
+        `;
+};
 
 // Відображення прогнозу погоди
-function getForecast(forecast){
+function getForecast(forecast) {
     weatherBlockDays.innerHTML = "";
 
     let daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-    console.log(forecast);
     forecast.forEach(el => {
         const weatherDay = document.createElement("div");
         weatherDay.classList.add("weather_day");
@@ -87,7 +118,7 @@ function getForecast(forecast){
         let day = daysOfWeek[numberOfDay];
         let hours = time.getHours();
         let minutes = time.getMinutes();
-        minutes=minutes>9?minutes:'0'+minutes;
+        minutes = minutes > 9 ? minutes : '0' + minutes;
 
         weatherDay.innerHTML = `
             <div class="day_time"><p class="day_name">${day}</p><p class="day_hours"> ${hours}:${minutes}</p></div>
@@ -98,9 +129,12 @@ function getForecast(forecast){
             <div class="day_hum">${humidity}&#37;</div>
         `
         weatherBlockDays.appendChild(weatherDay);
-    })
-}
+    });
+};
 
 if (weatherBlock) {
     loadWeather(mainCity);
-}
+};
+
+getCurrentCity();
+activeFavoriteCity(mainCity);
