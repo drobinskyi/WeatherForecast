@@ -126,7 +126,7 @@ function getForecast(forecast) {
                 <img class="day_img" src="http://openweathermap.org/img/wn/${weatherIcon}@2x.png" alt="${weatherStatus}">
             </div>
             <div class="day_temp">${temperature}&deg;</div>
-            <div class="day_hum">${humidity}&#37;</div>
+            <div class="day_hum"><i class="fa-solid fa-droplet"></i> ${humidity}&#37;</div>
         `
         weatherBlockDays.appendChild(weatherDay);
     });
