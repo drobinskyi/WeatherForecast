@@ -1,13 +1,16 @@
 "use strict"
 
 // Блок з погодою зараз
-const weatherBlock = document.querySelector('#weather_now');
+const weatherBlock = document.querySelector('.weather-now');
 
 // Блок зі щоденною погодою
-const weatherBlockDays = document.querySelector('#weather_days');
+const weatherBlockDays = document.querySelector('.weather-days');
 
 // Блок з улюбленими містами
 const favoriteCitiesString = document.querySelector('.favorite-cities');
+
+// Повідомлення про помилку
+const errorMessageEl = document.querySelector('.error-message');
 
 // Головне місто
 const mainCity = 'Lviv';
@@ -27,13 +30,12 @@ async function loadWeather(city) {
         getWeather(responseResult);
         getForecast(responseResult.list);
     } else {
-        weatherBlock.innerHTML = "";
-        weatherBlockDays.innerHTML = responseResult.message;
+        showErrorMessage(responseResult.message);
     }
 };
 
 // Отримання назви міста з форми
-let form = document.querySelector(".select_city");
+let form = document.querySelector(".select-city");
 let cityName = form.elements.city_name;
 function thisCity(event) {
     event.preventDefault();
@@ -73,6 +75,8 @@ function activeFavoriteCity(city) {
 
 // Відображення поточної погоди
 function getWeather(data) {
+    weatherBlock.classList.remove('hide');
+    errorMessageEl.classList.add('hide');
 
     const location = data.city.name;
     const temp = Math.round(data.list[0].main.temp);
@@ -82,19 +86,19 @@ function getWeather(data) {
     const weatherStatus = data.list[0].weather[0].main;
 
     weatherBlock.innerHTML = `
-        <div class="weather_city">${location}</div>
-        <div class="weather_now_icon">
-            <img class="weather_img" src="http://openweathermap.org/img/wn/${weatherIcon}@4x.png" alt="${weatherStatus}">
+        <div class="weather-city">${location}</div>
+        <div class="weather-now-icon">
+            <img class="weather-img" src="http://openweathermap.org/img/wn/${weatherIcon}@4x.png" alt="${weatherStatus}">
         </div>
-        <div class="weather_now_temp">${temp}&deg;</div>
-        <div class="weather_now_details">
-            <div class="weather_now_box">
-                <p class="box_text">Feels like</p>
-                <p class="box_details">${feelsLike}&deg;</p>
+        <div class="weather-now-temp">${temp}&deg;</div>
+        <div class="weather-now-details">
+            <div class="weather-now-box">
+                <p class="box-text">Feels like</p>
+                <p class="box-details">${feelsLike}&deg;</p>
             </div>
-            <div class="weather_now_box">
-                <p class="box_text">Humidity</p>
-                <p class="box_details">${humid}&#37;</p>
+            <div class="weather-now-box">
+                <p class="box-text">Humidity</p>
+                <p class="box-details">${humid}&#37;</p>
             </div>
         </div>
         `;
@@ -102,12 +106,13 @@ function getWeather(data) {
 
 // Відображення прогнозу погоди
 function getForecast(forecast) {
+    weatherBlockDays.classList.remove('hide');
     weatherBlockDays.innerHTML = "";
 
     let daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
     forecast.forEach(el => {
         const weatherDay = document.createElement("div");
-        weatherDay.classList.add("weather_day");
+        weatherDay.classList.add("weather-day");
 
         let time = new Date(el.dt_txt);
         let weatherIcon = el.weather[0].icon;
@@ -121,16 +126,28 @@ function getForecast(forecast) {
         minutes = minutes > 9 ? minutes : '0' + minutes;
 
         weatherDay.innerHTML = `
-            <div class="day_time"><p class="day_name">${day}</p><p class="day_hours"> ${hours}:${minutes}</p></div>
-            <div class="day_icon">
-                <img class="day_img" src="http://openweathermap.org/img/wn/${weatherIcon}@2x.png" alt="${weatherStatus}">
+            <div class="day-time"><p class="day-name">${day}</p><p class="day-hours"> ${hours}:${minutes}</p></div>
+            <div class="day-icon">
+                <img class="day-img" src="http://openweathermap.org/img/wn/${weatherIcon}@2x.png" alt="${weatherStatus}">
             </div>
-            <div class="day_temp">${temperature}&deg;</div>
-            <div class="day_hum"><i class="fa-solid fa-droplet"></i> ${humidity}&#37;</div>
+            <div class="day-temp">${temperature}&deg;</div>
+            <div class="day-hum"><i class="fa-solid fa-droplet"></i> ${humidity}&#37;</div>
         `
         weatherBlockDays.appendChild(weatherDay);
     });
 };
+
+// Виведення помилки
+function showErrorMessage(message) {
+    weatherBlock.classList.add('hide');
+    weatherBlockDays.classList.add('hide');
+    errorMessageEl.classList.remove('hide');
+
+    message = message[0].toUpperCase() + message.slice(1);
+
+    errorMessageEl.innerText = message;
+}
+
 
 if (weatherBlock) {
     loadWeather(mainCity);
