@@ -63,7 +63,6 @@
 .weather-days {
     height: auto;
     width: 550px;
-
 }
 
 .weather-day {
@@ -129,6 +128,7 @@ header {
 
 .title h1 {
     margin: 0;
+    text-rendering: optimizeLegibility;
 }
 
 .select-city {

@@ -146,8 +146,7 @@ function showErrorMessage(message) {
     message = message[0].toUpperCase() + message.slice(1);
 
     errorMessageEl.innerText = message;
-}
-
+};
 
 if (weatherBlock) {
     loadWeather(mainCity);
