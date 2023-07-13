@@ -37,14 +37,14 @@ async function loadWeather(city) {
 // Отримання назви міста з форми
 let form = document.querySelector(".select-city");
 let cityName = form.elements.city_name;
-function thisCity(event) {
+form.addEventListener('submit', (event) => {
     event.preventDefault();
 
     let newCity = cityName.value;
     loadWeather(newCity);
     activeFavoriteCity(newCity);
     cityName.value = "";
-};
+});
 
 // Вибір улюбленого міста
 function getCurrentCity() {

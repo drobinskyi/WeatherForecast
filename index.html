@@ -1,35 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
     <title>Weather Forecast</title>
-</head>
-<body>
+  </head>
+  <body>
     <header>
-        <div class="header">
-            <div class="title">
-                <h1>Weather Forecast</h1>
-            </div>
-            <form class="select-city" action="/" method="GET" onsubmit="thisCity(event)">
-                <input type="text" id="city-name" name="city_name" placeholder="Enter the city">
-                <input type="submit" id="select-name" name="select_name" value="Search">
-            </form>
+      <div class="header">
+        <div class="title">
+          <h1>Weather Forecast</h1>
         </div>
-        <div class="favorite-cities"></div>
+        <form class="select-city">
+          <input
+            type="text"
+            id="city-name"
+            name="city_name"
+            placeholder="Enter the city"
+          />
+          <input
+            type="submit"
+            id="select-name"
+            name="select_name"
+            value="Search"
+          />
+        </form>
+      </div>
+      <div class="favorite-cities"></div>
     </header>
     <div class="container">
-        <div class="weather-now"></div>
-        <div class="weather-days"></div>
-        <div class="error-message hide"></div>
+      <div class="weather-now"></div>
+      <div class="weather-days"></div>
+      <div class="error-message hide"></div>
     </div>
 
     <script src="script.js"></script>
-</body>
+  </body>
 </html>
