@@ -29,7 +29,6 @@ async function loadWeather(city) {
     if (response.ok) {
         getWeather(responseResult);
         getForecast(responseResult.list);
-        console.log(responseResult.list);
     } else {
         showErrorMessage(responseResult.message);
     }

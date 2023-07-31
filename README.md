@@ -1,7 +1,7 @@
 # WeatherForecast
 
 This project is done using **Vanilla JS**.\
-Data source: [OpenWeather](https://openweathermap.org/).\
+Data source: [OpenWeather](https://openweathermap.org/).
 
 ## Description
 
