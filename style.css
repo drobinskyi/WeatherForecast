@@ -5,7 +5,8 @@
 }
 
 body {
-    background: linear-gradient(#9FC5E8, 4%, #FFFFFF);
+    background: linear-gradient(#9FC5E8, 200px, #FFFFFF);
+    min-height: calc(100vh - 20px);
 }
 
 .container {
