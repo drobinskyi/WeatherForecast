@@ -29,6 +29,7 @@ async function loadWeather(city) {
     if (response.ok) {
         getWeather(responseResult);
         getForecast(responseResult.list);
+        console.log(responseResult.list);
     } else {
         showErrorMessage(responseResult.message);
     }
@@ -148,9 +149,7 @@ function showErrorMessage(message) {
     errorMessageEl.innerText = message;
 };
 
-if (weatherBlock) {
-    loadWeather(mainCity);
-};
+loadWeather(mainCity);
 
 getCurrentCity();
 activeFavoriteCity(mainCity);
