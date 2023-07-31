@@ -128,10 +128,10 @@ function getForecast(forecast) {
         weatherDay.innerHTML = `
             <div class="day-time"><p class="day-name">${day}</p><p class="day-hours"> ${hours}:${minutes}</p></div>
             <div class="day-icon">
-                <img class="day-img" src="http://openweathermap.org/img/wn/${weatherIcon}@2x.png" alt="${weatherStatus}">
+                <img class="day-img" src="http://openweathermap.org/img/wn/${weatherIcon}@2x.png" title="${weatherStatus}" alt="${weatherStatus}">
             </div>
-            <div class="day-temp">${temperature}&deg;</div>
-            <div class="day-hum"><i class="fa-solid fa-droplet"></i> ${humidity}&#37;</div>
+            <div class="day-temp" title="Temperature">${temperature}&deg;</div>
+            <div class="day-hum" title="Humidity"><i class="fa-solid fa-droplet"></i> ${humidity}&#37;</div>
         `
         weatherBlockDays.appendChild(weatherDay);
     });

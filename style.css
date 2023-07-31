@@ -131,6 +131,11 @@ header {
     width: calc(100% - 280px);
 }
 
+.title a {
+    text-decoration: none;
+    color: #000E18;
+}
+
 .title h1 {
     margin: 0;
     text-rendering: optimizeLegibility;
