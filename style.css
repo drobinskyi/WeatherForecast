@@ -1,6 +1,7 @@
 * {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
   font-family: "Poppins", sans-serif;
 }
 
@@ -235,7 +236,67 @@ header {
   position: fixed;
   top: calc(50% - 200px);
   height: 400px;
-  width: 150px;
+  width: 120px;
+  margin: auto;
+  padding: 20px 16px;
   background: linear-gradient(to top, #d5d6d6, 40%, #f1f2f3);
   border-radius: 0 20px 20px 0;
+}
+
+.thermo-scale-box {
+  height: 328px;
+  width: 88px;
+  display: flex;
+  justify-content: center;
+}
+
+.thermo-scale-left-side,
+.thermo-scale-right-side {
+  height: 100%;
+  width: 38px;
+  padding: 14px 0;
+  /* background-color: #3776a2; */
+}
+
+.thermo-scale-left-container,
+.thermo-scale-right-container {
+  height: 300px;
+  width: 100%;
+  /* background-color: #6bc2ff; */
+}
+
+.thermo-scale-tube {
+  height: calc(100% + 12px);
+  width: 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  background: linear-gradient(to right, #c6c8dc, #e2e3ed, #c6c8dc);
+  border-radius: 6px 6px 0 0;
+}
+
+.thermo-tube-main {
+  height: 40px;
+  width: 12px;
+  background: linear-gradient(to right, #cc0000, #e06666, #cc0000);
+}
+
+.thermo-tube-footer {
+  height: 26px;
+  width: 12px;
+  background: linear-gradient(to right, #cc0000, #e06666, #cc0000);
+}
+
+.thermo-bottom-box {
+  height: 32px;
+  width: 88px;
+  display: flex;
+  justify-content: center;
+}
+
+.thermo-bottom-circle {
+  height: 32px;
+  width: 32px;
+  border-radius: 50%;
+  background: radial-gradient(#e06666, 50%, #cc0000);
 }
