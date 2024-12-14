@@ -125,7 +125,6 @@ function getForecast(forecast) {
         let minutes = time.getMinutes();
         minutes = minutes > 9 ? minutes : '0' + minutes;
 
-        console.log(el);
         weatherDay.innerHTML = `
             <div class="day-time" title="${time.toLocaleDateString()}"><p class="day-name">${day}</p><p class="day-hours"> ${hours}:${minutes}</p></div>
             <div class="day-icon">
