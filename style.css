@@ -327,6 +327,7 @@ header {
   height: 0px;
   width: 12px;
   background: linear-gradient(to right, #cc0000, #e06666, #cc0000);
+  transition: 0.2s ease;
 }
 
 .thermo-tube-footer {
