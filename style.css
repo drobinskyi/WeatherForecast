@@ -324,7 +324,7 @@ header {
 }
 
 .thermo-tube-main {
-  height: 40px;
+  height: 0px;
   width: 12px;
   background: linear-gradient(to right, #cc0000, #e06666, #cc0000);
 }

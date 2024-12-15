@@ -18,6 +18,9 @@ const mainCity = 'Lviv';
 // Улюблені міста
 const favoriteCities = ['Lviv', 'Kyiv', 'Vinnytsia', 'London', 'Paris', 'Tokyo', 'Anchorage'];
 
+// Шкала термометра
+const thermometerScale = document.querySelector('.thermo-tube-main');
+
 // Функція прогнозу погоди бере дані
 async function loadWeather(city) {
     const server = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&units=metric&appid=953b0f3cb1099077afe9a2b277e47716`;
@@ -85,6 +88,8 @@ function getWeather(data) {
     const weatherIcon = data.list[0].weather[0].icon;
     const weatherStatus = data.list[0].weather[0].main;
 
+    showThermometerScale(temp);
+
     weatherBlock.innerHTML = `
         <div class="weather-city">${location}</div>
         <div class="weather-now-icon">
@@ -147,6 +152,12 @@ function showErrorMessage(message) {
 
     errorMessageEl.innerText = message;
 };
+
+// Відображення температури на термометрі
+function showThermometerScale(number) {
+    const height = 3 * (50 + number);
+    thermometerScale.setAttribute("style", `height: ${height}px`);
+}
 
 loadWeather(mainCity);
 
