@@ -16,7 +16,7 @@ const errorMessageEl = document.querySelector('.error-message');
 const mainCity = 'Lviv';
 
 // Улюблені міста
-const favoriteCities = ['Lviv', 'Kyiv', 'Vinnytsia', 'London', 'Paris', 'Tokyo', 'Anchorage'];
+const favoriteCities = ['Lviv', 'Kyiv', 'Vinnytsia', 'London', 'Paris', 'Cairo', 'Anchorage'];
 
 // Шкала термометра
 const thermometerScale = document.querySelector('.thermo-tube-main');
