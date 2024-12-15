@@ -235,7 +235,7 @@ header {
 .thermometer {
   position: fixed;
   top: calc(50% - 200px);
-  height: 400px;
+  height: 415px;
   width: 120px;
   margin: auto;
   padding: 20px 16px;
@@ -244,7 +244,7 @@ header {
 }
 
 .thermo-scale-box {
-  height: 328px;
+  height: 343px;
   width: 88px;
   display: flex;
   justify-content: center;
@@ -255,14 +255,62 @@ header {
   height: 100%;
   width: 38px;
   padding: 14px 0;
-  /* background-color: #3776a2; */
 }
 
 .thermo-scale-left-container,
 .thermo-scale-right-container {
-  height: 300px;
+  height: 315px;
   width: 100%;
-  /* background-color: #6bc2ff; */
+}
+
+.thermo-scale-section {
+  height: 30px;
+  width: 100%;
+  display: flex;
+}
+
+.thermo-scale-section:first-child {
+  height: 15px;
+}
+
+.thermo-scale-section-degrees {
+  height: 100%;
+  width: 30%;
+}
+
+.thermo-scale-section-number,
+.thermo-scale-section-number-left {
+  height: 100%;
+  width: 70%;
+  display: flex;
+  align-items: end;
+}
+
+.thermo-scale-section-number {
+  justify-content: right;
+}
+
+.thermo-scale-half-section {
+  height: 15px;
+  width: 100%;
+}
+
+.thermo-scale-one-degree {
+  height: 3px;
+  width: 50%;
+}
+
+.thermo-scale-section {
+  border-bottom: 1px solid #63646e;
+}
+
+.thermo-scale-half-section:last-child {
+  border-top: 1px solid #63646e;
+}
+
+.thermo-number {
+  font-family: "Oswald", sans-serif;
+  color: #3b3c42;
 }
 
 .thermo-scale-tube {
