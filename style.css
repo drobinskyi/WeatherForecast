@@ -302,12 +302,14 @@ header {
   width: 50%;
 }
 
-.thermo-scale-section {
+.thermo-scale-section,
+.thermo-scale-half-section:first-child {
   border-bottom: 1px solid #63646e;
 }
 
-.thermo-scale-half-section:last-child {
+.thermo-scale-half-section-top {
   border-top: 1px solid #63646e;
+  border-bottom: none;
 }
 
 .thermo-number {
