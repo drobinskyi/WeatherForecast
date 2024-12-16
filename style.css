@@ -7,6 +7,8 @@
 
 body {
   background: linear-gradient(#9fc5e8, 200px, #ffffff);
+  /* background: linear-gradient(#5c4696, 200px, #ffffff); */
+  background-attachment: fixed;
   min-height: calc(100vh - 20px);
 }
 
