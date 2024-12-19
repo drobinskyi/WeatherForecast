@@ -71,17 +71,21 @@ body {
 .weather-days {
   height: auto;
   width: 550px;
+  background: linear-gradient(to right, #d5d6d6, 60%, #f1f2f3);
+  border-radius: 20px;
 }
 
 .weather-day {
   width: 550px;
   height: 100px;
-  margin-bottom: 10px;
-  background: linear-gradient(to top, #d5d6d6, 40%, #f1f2f3);
-  border-radius: 20px;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+  border-bottom: 1px solid #d5d6d6;
+}
+
+.weather-day:last-child {
+  border-bottom: none;
 }
 
 .day-time {
