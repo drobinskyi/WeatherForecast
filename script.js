@@ -31,7 +31,7 @@ async function loadWeather(city) {
 
     if (response.ok) {
         getWeather(responseResult);
-        getForecast(responseResult.list);
+        getForecast(responseResult);   
     } else {
         showErrorMessage(responseResult.message);
     }
@@ -110,28 +110,34 @@ function getWeather(data) {
 };
 
 // Відображення прогнозу погоди
-function getForecast(forecast) {
+function getForecast(weather) {
     weatherBlockDays.classList.remove('hide');
     weatherBlockDays.innerHTML = "";
 
+    let forecast = weather.list;
     let daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
     forecast.forEach(el => {
         const weatherDay = document.createElement("div");
         weatherDay.classList.add("weather-day");
 
         let time = new Date(el.dt_txt);
+        let digitalTime = time.getTime();
+        let timezone = weather.city.timezone;
+        let mathLocalTime = digitalTime - 7200000 + timezone * 1000;    // 7200s is local timezone of Ukraine
+        let localTime = new Date(mathLocalTime);
+        let numberOfDay = localTime.getDay(time);
+        let day = daysOfWeek[numberOfDay];
+        let hours = localTime.getHours();
+        let minutes = localTime.getMinutes();
+        minutes = minutes > 9 ? minutes : '0' + minutes;
+
         let weatherIcon = el.weather[0].icon;
         let weatherStatus = el.weather[0].description;
         let temperature = Math.round(el.main.temp);
         let humidity = Math.round(el.main.humidity);
-        let numberOfDay = time.getDay(time);
-        let day = daysOfWeek[numberOfDay];
-        let hours = time.getHours();
-        let minutes = time.getMinutes();
-        minutes = minutes > 9 ? minutes : '0' + minutes;
-
+        
         weatherDay.innerHTML = `
-            <div class="day-time" title="${time.toLocaleDateString()}"><p class="day-name">${day}</p><p class="day-hours"> ${hours}:${minutes}</p></div>
+            <div class="day-time" title="${localTime.toLocaleDateString()}"><p class="day-name">${day}</p><p class="day-hours"> ${hours}:${minutes}</p></div>
             <div class="day-icon">
                 <img class="day-img" src="http://openweathermap.org/img/wn/${weatherIcon}@2x.png" title="${weatherStatus}" alt="${weatherStatus}">
             </div>
