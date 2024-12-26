@@ -31,7 +31,8 @@ async function loadWeather(city) {
 
     if (response.ok) {
         getWeather(responseResult);
-        getForecast(responseResult);   
+        getForecast(responseResult);
+        changeBackground(responseResult);
     } else {
         showErrorMessage(responseResult.message);
     }
@@ -163,6 +164,32 @@ function showErrorMessage(message) {
 function showThermometerScale(number) {
     const height = 3 * (50 + number);
     thermometerScale.setAttribute("style", `height: ${height}px`);
+}
+
+// Зміна фону сторінки залежно від поточного часу
+function changeBackground(data) {
+    const thisTime = data.list[0].dt_txt;
+    const time = new Date(thisTime);
+    const digitalTime = time.getTime();
+    const timezone = data.city.timezone;
+    const mathLocalTime = digitalTime - 7200000 + timezone * 1000;    // 7200s is local timezone of Ukraine
+    const localTime = new Date(mathLocalTime);
+    const hours = localTime.getHours();
+
+    const body = document.body;
+    const title = document.querySelector('.title-text');
+
+    if (hours >= 6 && hours < 18) {
+        body.classList.add('day-theme');
+        body.classList.remove('night-theme');
+        title.style.color = '#000e18';
+    } else {
+        body.classList.add('night-theme');
+        body.classList.remove('day-theme');
+        title.style.color = '#d8d9da';
+    }
+
+    body.style.backgroundAttachment = 'fixed';
 }
 
 loadWeather(mainCity);
