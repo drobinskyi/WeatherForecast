@@ -21,6 +21,7 @@ body {
   margin: auto;
   height: auto;
   width: 770px;
+  padding-bottom: 8px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -94,13 +95,15 @@ body {
 
 .weather-day:first-child,
 .first-time-of-day {
-  border-radius: 20px 20px 0 0;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
 }
 
 .weather-day:last-child,
 .last-time-of-day {
-  margin-bottom: 20px;
-  border-radius: 0 0 20px 20px;
+  margin-bottom: 12px;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
   border-bottom: none;
 }
 
