@@ -162,6 +162,7 @@ header {
 .title a {
   text-decoration: none;
   color: #000e18;
+  transition: color 0.5s;
 }
 
 .title h1 {
