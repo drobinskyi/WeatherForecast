@@ -131,6 +131,9 @@ function getForecast(weather) {
         let hours = localTime.getHours();
         let minutes = localTime.getMinutes();
         minutes = minutes > 9 ? minutes : '0' + minutes;
+        let hourOfDay = time.getHours();
+        console.log(hourOfDay);
+        
 
         let weatherIcon = el.weather[0].icon;
         let weatherStatus = el.weather[0].description;
@@ -146,6 +149,12 @@ function getForecast(weather) {
             <div class="day-hum" title="Humidity"><i class="fa-solid fa-droplet"></i> ${humidity}&#37;</div>
         `
         weatherBlockDays.appendChild(weatherDay);
+
+        if (hourOfDay === 0) {
+            weatherDay.classList.add('first-time-of-day')
+        } if (hourOfDay === 21) {
+            weatherDay.classList.add('last-time-of-day')
+        }
     });
 };
 

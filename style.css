@@ -21,7 +21,6 @@ body {
   margin: auto;
   height: auto;
   width: 770px;
-  padding-bottom: 20px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -80,7 +79,6 @@ body {
 .weather-days {
   height: auto;
   width: 550px;
-  background: linear-gradient(to right, #d5d6d6, 60%, #f1f2f3);
   border-radius: 20px;
 }
 
@@ -90,10 +88,19 @@ body {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+  background: linear-gradient(to right, #d5d6d6, 60%, #f1f2f3);
   border-bottom: 1px solid #d5d6d6;
 }
 
-.weather-day:last-child {
+.weather-day:first-child,
+.first-time-of-day {
+  border-radius: 20px 20px 0 0;
+}
+
+.weather-day:last-child,
+.last-time-of-day {
+  margin-bottom: 20px;
+  border-radius: 0 0 20px 20px;
   border-bottom: none;
 }
 
