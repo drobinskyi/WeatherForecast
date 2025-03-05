@@ -5,8 +5,29 @@
   font-family: "Poppins", sans-serif;
 }
 
-body {
+/* body {
   min-height: calc(100vh - 20px);
+} */
+
+.container {
+  margin: auto;
+  height: auto;
+  width: 770px;
+  padding-bottom: 8px;
+  display: flex;
+  position: relative;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+/* --- Background --- */
+.main-background {
+  width: 100%;
+  min-height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
 }
 
 .day-theme {
@@ -15,17 +36,6 @@ body {
 
 .night-theme {
   background: linear-gradient(#5c4696, 200px, #ffffff);
-}
-
-.container {
-  margin: auto;
-  height: auto;
-  width: 770px;
-  padding-bottom: 8px;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  flex-wrap: wrap;
 }
 
 /* --- Weather now box --- */
@@ -144,6 +154,7 @@ body {
 header {
   max-width: 770px;
   margin: auto;
+  position: relative;
 }
 
 .header {

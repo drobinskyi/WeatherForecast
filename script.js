@@ -182,20 +182,20 @@ function changeBackground(data) {
     const localTime = new Date(mathLocalTime);
     const hours = localTime.getHours();
 
-    const body = document.body;
+    const mainBackground = document.querySelector('.main-background');
     const title = document.querySelector('.title-text');
 
     if (hours >= 6 && hours < 18) {
-        body.classList.add('day-theme');
-        body.classList.remove('night-theme');
+        mainBackground.classList.add('day-theme');
+        mainBackground.classList.remove('night-theme');
         title.style.color = '#000e18';
     } else {
-        body.classList.add('night-theme');
-        body.classList.remove('day-theme');
+        mainBackground.classList.add('night-theme');
+        mainBackground.classList.remove('day-theme');
         title.style.color = '#d8d9da';
     }
 
-    body.style.backgroundAttachment = 'fixed';
+    mainBackground.style.backgroundAttachment = 'fixed';
 }
 
 loadWeather(mainCity);
